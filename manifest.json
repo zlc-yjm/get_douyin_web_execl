@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "抖音视频获取器",
+  "version": "1.0",
+  "description": "获取抖音视频链接和点赞数据",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.douyin.com/*",
+    "*://douyin.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.douyin.com/*",
+        "*://douyin.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.js"],
+      "matches": ["*://*.douyin.com/*", "*://douyin.com/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+} 

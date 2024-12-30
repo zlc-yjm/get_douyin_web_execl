@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>抖音视频获取器</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #ff0050;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      background-color: #cc003f;
+    }
+    #status {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      text-align: center;
+      min-height: 20px;
+      line-height: 1.4;
+    }
+    small {
+      color: #666;
+      font-size: 0.9em;
+    }
+    .secondary {
+      background-color: #666;
+    }
+    .secondary:hover:not(:disabled) {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="number" id="likeThreshold" placeholder="输入最低点赞数（如：1000）" required min="0" pattern="[0-9]*">
+    <input type="number" id="videoLimit" placeholder="输入需要获取的视频行数（最高50行）" required min="1" max="50" value="50">
+    <button id="startButton">开始获取视频</button>
+    <button id="exportButton">导出数据</button>
+    <button id="analyzeButton" class="secondary">分析页面结构</button>
+    <div id="status">
+      准备就绪<br>
+      <small>请确保在抖音用户主页使用</small>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
